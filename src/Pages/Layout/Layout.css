@@ -1,0 +1,30 @@
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #404040;
+}
+
+.navbar .bar{
+    display: flex;
+}
+
+.navbar a .navlink{
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a.active{
+    background-color: #505050;
+}
+
+.navbar a:hover .navlink{
+    background-color: #505050;
+}
