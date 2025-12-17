@@ -13,6 +13,11 @@ export default function ItemsDetail({}) {
 
 
     useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    setFavorite(favorites.includes(id));
+    }, [id]);
+
+    useEffect(() => {
         fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=c7ccac77`)
             .then(result => result.json())
             .then(data => setDetails(data)); 
@@ -22,13 +27,24 @@ export default function ItemsDetail({}) {
         navigate('/catalogue')
     }
 
-
+    const setItemInFavorite = () => {
+        const favorites = JSON.parse(localStorage.getItem('favorites'));
+        if(!favorite) {
+            favorites.push(id);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            setFavorite(true);
+        } else {
+            const updatedFavorites = favorites.filter(favoriteId => favoriteId !== id);
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+            setFavorite(false);
+        }
+    }
 
     return (
     <>
         <button onClick={goBack}><ArrowBigLeft /></button>
         <div className='container'>
-        <div onClick={() => setFavorite(prev => !prev)}>
+        <div onClick={setItemInFavorite} className='favorite-icon'>
         {favorite && (
             <Star size={48} color="#d4d80e" />        
         )}

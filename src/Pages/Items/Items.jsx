@@ -6,7 +6,7 @@ export default function Items({ movie }) {
 
     return (
         <Link to={`/catalogue/${movie.imdbID}`} className='user'>
-        <div className="container">
+            <div className="container">
             <div className="header">
                 <div className="picture">
                     <img src={movie.Poster}  />
