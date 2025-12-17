@@ -1,6 +1,6 @@
 import { NavLink, Outlet} from 'react-router';
 import './Layout.css';
-import { Home, LogOut, ShoppingCart, User } from 'lucide-react';
+import { Film, Home } from 'lucide-react';
 
 
 
@@ -12,7 +12,7 @@ export default function Layout({}) {
             <div className='navbar'>
                 <div className="left-bar bar">
                     <NavLink to="/"><Home /></NavLink>
-                    <NavLink to="/products">Produits</NavLink>
+                    <NavLink to="/catalogue"><Film /></NavLink>
                 </div>
             </div>
             <Outlet />
