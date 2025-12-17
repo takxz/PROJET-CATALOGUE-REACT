@@ -5,8 +5,8 @@ import Items from '../Items/Items';
 
 export default function ItemsList({}) {
 
-    const [moviesList, setMoviesList] = useState([])
-    const [title, setTitle] = useState("")
+    const [moviesList, setMoviesList] = useState([]);
+    const [title, setTitle] = useState("");
 
 
     const getMovieByTitle = () => {
@@ -28,7 +28,6 @@ export default function ItemsList({}) {
                 <button onClick={getMovieByTitle}>Rechercher</button>
             </div>
             <div className='movies-details'>
-
                 {moviesList.map((movie => <Items movie={movie} key={movie.imdbID} />))}
             </div>  
         </div>
